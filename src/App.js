@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 import { BrowserRouter, Switch, Route} from 'react-router-dom'
 
-import Login from './screens/login'
+import Login from './telas/login'
 import './App.css';
 
 function App() {
   return (
     <BrowserRouter>
       <div className = 'App'>
-
         {/* Sidebar aqui fora do switch */}
 
               <Switch>
