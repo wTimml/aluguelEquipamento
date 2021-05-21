@@ -1,10 +1,11 @@
 import React from 'react'
+import CriarDepartamento from "../componentes/CriarDepartamento/CriarDepartamento.js"
 
 const Login = () => {
 
     return(
         <div>
-            <h1>Hello bitches</h1>
+            <CriarDepartamento />
         </div>
     )
 }
