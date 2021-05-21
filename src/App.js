@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { BrowserRouter, Switch, Route} from 'react-router-dom'
-
+import TelaTestes from './telas/tela de testes.js'
 import Login from './telas/login'
 import './App.css';
 
@@ -12,6 +12,7 @@ function App() {
 
               <Switch>
                   <Route exact path='/' component={Login} />
+                  <Route path='/telatestes' component={TelaTestes} />
 
 
 
