@@ -3,7 +3,7 @@
     font-style: normal;
     font-weight: 900;
     font-size: 1rem; /*45px*/
-    position: absolute;
+    position: relative;
     height: 40px;
     width: 173px;
     border-radius: 10px;
