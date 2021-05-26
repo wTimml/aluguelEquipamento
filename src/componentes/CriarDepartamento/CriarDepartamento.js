@@ -28,12 +28,13 @@ const CriarDepartamento = () => {
     
     return(
         <form onSubmit={(event) => handleSubmit(event)}>
-    
-            <input
-                label='Nome'
-                placeholder='Nome'
-                onChange={handleChange('nome')}
-                />
+            <div className='inputBackground'>
+                <input
+                    label='Nome'
+                    placeholder='Nome'
+                    onChange={handleChange('nome')}
+                    />
+            </div>
                 <div className='row'>
                     <div className='error'>{aviso.aviso}</div>
                     <button type='submit'> Criar </button>    
