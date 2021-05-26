@@ -7,7 +7,7 @@ export const Cores = {
     botaoEscuro: '#657285',
     disponivel:'#D2D540',
     indisponivel:'#F83004',
-    secundaria: '#89A3C9',
+    secundaria: '#89A3C9', //fundo dos componentes
     secundariaEscura: '#D9D2D2',
     secundariaClara: '#EFEFEF'
 }

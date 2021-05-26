@@ -1,33 +1,44 @@
-import React, {useState} from 'react'
-import {Cores} from '../../constantes/cores'
+import React, {useEffect, useState} from 'react'
+import axios from 'axios';
+import './styles.css'
 
 const CriarDepartamento = () => {
 
     const [departamento, setDepartamento] = useState({
-         nome:'' 
+            id: 0,
+            nome:'' 
         })
+
+    const [aviso, setAviso] = useState({
+
+        aviso:'Mensagem de aviso'
+    })
 
     const handleChange = (prop) => (event) => {
         setDepartamento({ ...departamento, [prop]: event.target.value });
     }
 
     const handleSubmit = () => {
+        useEffect( () => {
+            axios.post('http://localhost:8080/departamentos', departamento)
+                .then(response => setDepartamento(departamento.id= response.data.id));
 
+        }, [])
     }
-
-    const styles = ({
-        background: Cores.primariaClara
-    })
     
     return(
-        <form onSubmit={handleSubmit} style={styles}>
+        <form onSubmit={(event) => handleSubmit(event)}>
+    
             <input
-                fullWidth
                 label='Nome'
                 placeholder='Nome'
                 onChange={handleChange('nome')}
-                value={departamento.nome}
                 />
+                <div className='row'>
+                    <div className='error'>{aviso.aviso}</div>
+                    <button type='submit'> Criar </button>    
+                </div>
+            
         </form>
     )
 }
