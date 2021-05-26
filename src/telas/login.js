@@ -4,7 +4,7 @@ const Login = () => {
 
     return(
         <div>
-            <h1>Hello bitches</h1>
+
         </div>
     )
 }
