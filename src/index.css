@@ -29,18 +29,24 @@ form{
   border-radius: 10px;
 }
 
+form div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  width: 100%;
+}
+
 input{
-  margin: 15px;
+  margin: 1%;
   display: flex;
   align-content: center;
   justify-content: center;
 
-  width: 90%;
+  width: 98%;
 
-  border-radius: 10px;
-  border-width: 20px;
-  border-style: solid;
-  border-color: #D9D2D2;
+  border-radius: 5px;
+  border-style: none;
 
   font-family: 'Nunito', sans-serif;
 }
@@ -62,19 +68,34 @@ button {
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin: 22px;
+    margin: 2%;
 }
 
-div{
+.inputBackground {
+  display: flex;
+  flex-direction: column;
+  width: 96%;
+  background-color: #D9D2D2;
+  border-radius: 10px;
+  margin-top: 1%;
+}
+
+.column{
 
   width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  
+  flex-direction: column;
 
 }
 .row{
   display: flex;
   flex-direction: row;
-  align-items: center;
+  width: 100%;
 }
+
 .error{
 
   display: flex;
@@ -83,12 +104,4 @@ div{
   margin-left: 3%;
   color: rgb(199, 27, 27);
 
-}
-
-row {
-
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  
 }
