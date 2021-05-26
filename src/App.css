@@ -1,7 +1,12 @@
 .App {
+<<<<<<< HEAD
   display: flex;
   text-align: center;
   justify-content: center;
   height: 100vh;
 }
 
+=======
+  text-align: center;
+}
+>>>>>>> 37a0173a29e3d35064cf76d23621272ccc4fa9fa
