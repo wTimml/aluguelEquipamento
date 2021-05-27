@@ -106,6 +106,7 @@ button {
 
 }
 
+
 .cardAluguel{
   display: flex;
   flex-direction: column;
@@ -118,4 +119,10 @@ font-weight: bold;
 .cardFont2{
 font-size: 1.5vw;   
 font-weight: bold;
+
+h1{
+  background: -webkit-linear-gradient(#6736DD, #12C3F7);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
 }
