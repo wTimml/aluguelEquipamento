@@ -105,3 +105,17 @@ button {
   color: rgb(199, 27, 27);
 
 }
+
+.cardAluguel{
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+.cardFont1{
+font-size: 7vw;   
+font-weight: bold;
+}
+.cardFont2{
+font-size: 1.5vw;   
+font-weight: bold;
+}
