@@ -1,32 +1,31 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import './styles.css'
 
 const CriarDepartamento = () => {
 
     const [departamento, setDepartamento] = useState({
-            id: 0,
-            nome:'' 
-        })
+        id: 0,
+        nome: ''
+    })
 
     const [aviso, setAviso] = useState({
 
-        aviso:'Mensagem de aviso'
+        aviso: 'Mensagem de aviso'
     })
 
-    const handleChange = (prop) => (event) => { 
+    const handleChange = (prop) => (event) => {
         setDepartamento({ ...departamento, [prop]: event.target.value });
     }
 
-    const handleSubmit = (event) => {
-        useEffect( () => {
-            axios.post('http://localhost:8080/departamentos', departamento)
-                .then(response => setDepartamento(departamento.id= response.data.id));
+    const handleSubmit = async e => {
+        e.preventDefault();
+        await axios.post('http://localhost:8080/departamentos', departamento)
+            .then(response => setDepartamento(departamento.id = response.data.id));
 
-        }, [])
     }
-    
-    return(<>
+
+    return (<>
         <h1>Cadastrar Departamento</h1>
         <form onSubmit={handleSubmit}>
             <div className='inputBackground'>
@@ -34,15 +33,15 @@ const CriarDepartamento = () => {
                     label='Nome'
                     placeholder='Nome'
                     onChange={handleChange('nome')}
-                    />
+                />
             </div>
-                <div className='row'>
-                    <div className='error'>{aviso.aviso}</div>
-                    <button type='submit'> Criar </button>    
-                </div>
-            
+            <div className='row'>
+                <div className='error'>{aviso.aviso}</div>
+                <button type='submit'> Criar </button>
+            </div>
+
         </form>
-        </>
+    </>
     )
 }
 
