@@ -14,11 +14,11 @@ const CriarDepartamento = () => {
         aviso:'Mensagem de aviso'
     })
 
-    const handleChange = (prop) => (event) => {
+    const handleChange = (prop) => (event) => { 
         setDepartamento({ ...departamento, [prop]: event.target.value });
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (event) => {
         useEffect( () => {
             axios.post('http://localhost:8080/departamentos', departamento)
                 .then(response => setDepartamento(departamento.id= response.data.id));
@@ -26,8 +26,9 @@ const CriarDepartamento = () => {
         }, [])
     }
     
-    return(
-        <form onSubmit={(event) => handleSubmit(event)}>
+    return(<>
+        <h1>Cadastrar Departamento</h1>
+        <form onSubmit={handleSubmit}>
             <div className='inputBackground'>
                 <input
                     label='Nome'
@@ -41,6 +42,7 @@ const CriarDepartamento = () => {
                 </div>
             
         </form>
+        </>
     )
 }
 
