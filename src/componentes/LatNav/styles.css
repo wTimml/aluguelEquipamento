@@ -1,0 +1,34 @@
+.sidenavOpen{
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    position: fixed;
+    width: 200px;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    background-color: #95aaca; 
+}
+
+.sidenavClose{
+    display: flex;
+    flex-direction: column;
+    
+    height: 100%;
+    position: fixed;
+    width: 72px;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    background-color: #95aaca; 
+}
+
+#restoDaTela{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 4;
+}

@@ -7,6 +7,7 @@ import './App.css';
 function App() {
   return (
     <BrowserRouter>
+    
       <div className='App'>
         {/* Sidebar aqui fora do switch */}
 
