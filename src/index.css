@@ -109,6 +109,8 @@ button {
 
 .cardAluguel{
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
   padding: 40px;
 }
@@ -119,10 +121,59 @@ font-weight: bold;
 .cardFont2{
 font-size: 1.5vw;   
 font-weight: bold;
-
+}
 h1{
   background: -webkit-linear-gradient(#6736DD, #12C3F7);
   background-clip: text;
   -webkit-text-fill-color: transparent;
 
+}
+
+/* ################# Sidebar ################# */
+.sidenav{
+  height: 100%;
+  position: fixed;
+  width: 72px;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  background-color: #141920;
+}
+
+.sidenav a{
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  display: block;
+  transition: 0.3s;
+}
+.sidenav a:hover{
+  color: #f1f1f1;
+}
+@media screen and (max-height:450px){
+  .sidenav{padding-top: 15px;}
+  .sidenav a{font-size: 18px;}
+}
+
+/* ################# Sidebar dropdown ################# */
+.sidenav-dropdown{
+  position: relative;
+  display: inline-block;
+}
+
+.sidenav-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #141920;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  width: 100%;
+  left: 100%;
+}
+.sidenav-dropdown:hover .sidenav-dropdown-content{
+  display: block;
 }
