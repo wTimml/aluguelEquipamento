@@ -1,10 +1,12 @@
 import React from 'react';
 import Botao1 from '../componentes/botoes/botao1'
-import LatNav from '../componentes/LatNav/latNav'
+import latNav from '../componentes/LatNav/latNav';
+
+
 export const TelaTestes = ()=>{
     return(
         <div>
-            <LatNav />
+            <latNav />
             <Botao1>Disponivel</Botao1>
         </div>
     )

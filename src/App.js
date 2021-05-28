@@ -3,13 +3,13 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import TelaTestes from './telas/tela de testes.js'
 import Login from './telas/login'
 import './App.css';
-
+import LatNav from './componentes/LatNav/latNav'
 function App() {
   return (
     <BrowserRouter>
-    
+    <LatNav />
       <div className='App'>
-        {/* Sidebar aqui fora do switch */}
+        
 
         <Switch>
           <Route exact path='/' component={Login} />

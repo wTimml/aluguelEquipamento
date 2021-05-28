@@ -11,24 +11,23 @@ const latNav = () => {
     }
 
     const LatNavMenu = () => {
-        if(toggle) return <div id='restoDaTela' onClick={handleOutsideClick}>
+        return <div style={{visibility: toggle ? "visible" : "hidden"}} id='restoDaTela' onClick={handleOutsideClick}>
                 <div className='sidenavOpen' id='sidenav'>
                     <a href="#">'icon' Clientes</a>
                     <a href="#">'icon' Produtos</a>
                     <a href="#">'icon' Emprestimo</a>
                 </div>
             </div>
-        else 
-            return <div className='sidenavClose' id='sidenav' onClick={handleOutsideClick}>
-                <a href="#">'icon'</a>
-                <a href="#">'icon'</a>
-                <a href="#">'icon'</a>
-            </div>   
     }
 
     return (
         <div >
-            <LatNavMenu /> 
+            <LatNavMenu />
+            <div className='sidenavClosed' id='sidenav' onClick={handleOutsideClick}>
+                <a href="#">'icon'</a>
+                <a href="#">'icon'</a>
+                <a href="#">'icon'</a>
+            </div>  
         </div>
     )
 }

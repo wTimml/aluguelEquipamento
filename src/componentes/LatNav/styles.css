@@ -12,14 +12,13 @@
     background-color: #95aaca; 
 }
 
-.sidenavClose{
+.sidenavClosed{
     display: flex;
     flex-direction: column;
     
     height: 100%;
     position: fixed;
     width: 72px;
-    z-index: 5;
     top: 0;
     left: 0;
     padding-top: 20px;
