@@ -1,0 +1,13 @@
+.botao1{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 1rem; /*45px*/
+    height: 40px;
+    width: 173px;
+    border-radius: 10px;
+    border-style: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

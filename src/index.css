@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
 body {
   margin: 0;
+  border: 0;
+  background-color: #0F1217;
+  
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -10,4 +15,114 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+form{
+  background-color: #89A3C9;
+  width: 60%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  border-radius: 10px;
+}
+
+form div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  width: 100%;
+}
+
+input{
+  margin: 1%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+
+  width: 98%;
+
+  border-radius: 5px;
+  border-style: none;
+
+  font-family: 'Nunito', sans-serif;
+}
+
+button {
+    background-color: #6736DD;
+    color: #EFEFEF;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 1rem; /*45px*/
+
+    height: 40px;
+    width: 173px;
+
+    border-radius: 10px;
+    border-style: none;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 2%;
+}
+
+.inputBackground {
+  display: flex;
+  flex-direction: column;
+  width: 96%;
+  background-color: #D9D2D2;
+  border-radius: 10px;
+  margin-top: 1%;
+}
+
+.column{
+
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  
+  flex-direction: column;
+
+}
+.row{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.error{
+
+  display: flex;
+  justify-content: left;
+
+  margin-left: 3%;
+  color: rgb(199, 27, 27);
+
+}
+
+
+.cardAluguel{
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+.cardFont1{
+font-size: 7vw;   
+font-weight: bold;
+}
+.cardFont2{
+font-size: 1.5vw;   
+font-weight: bold;
+
+h1{
+  background: -webkit-linear-gradient(#6736DD, #12C3F7);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
 }
