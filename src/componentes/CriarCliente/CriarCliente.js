@@ -28,7 +28,7 @@ const CriarCliente = () => {
 
     const [aviso, setAviso] = useState({
 
-        aviso: 'Mensagem de aviso'
+        aviso: ''
     })
 
     const handleChange = (prop) => (event) => {
