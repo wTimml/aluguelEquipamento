@@ -6,8 +6,6 @@ const Login = () => {
 
     return (
         <div>
-            <De />
-            <CriarCliente />
         </div>
     )
 }
