@@ -133,11 +133,10 @@ h1{
 .sidenav{
   height: 100%;
   position: fixed;
-  width: 72px;
+  width: 180px;
   z-index: 0;
   top: 0;
   left: 0;
-  overflow-x: hidden;
   padding-top: 20px;
   background-color: #141920;
 }
@@ -145,7 +144,7 @@ h1{
 .sidenav a{
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 20px;
   display: block;
   transition: 0.3s;
 }
@@ -158,12 +157,12 @@ h1{
 }
 
 /* ################# Sidebar dropdown ################# */
-.sidenav-dropdown{
+.sidenav-dropdown1, .sidenav-dropdown2, .sidenav-dropdown3 {
   position: relative;
   display: inline-block;
 }
 
-.sidenav-dropdown-content {
+.sidenav-dropdown-content1,  .sidenav-dropdown-content2, .sidenav-dropdown-content3 {
   display: none;
   position: absolute;
   background-color: #141920;
@@ -173,7 +172,10 @@ h1{
   z-index: 1;
   width: 100%;
   left: 100%;
+  top: 0;
 }
-.sidenav-dropdown:hover .sidenav-dropdown-content{
+
+.sidenav-dropdown1:hover .sidenav-dropdown-content1, .sidenav-dropdown2:hover .sidenav-dropdown-content2, .sidenav-dropdown3:hover .sidenav-dropdown-content3{
   display: block;
 }
+
