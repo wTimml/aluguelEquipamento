@@ -155,7 +155,6 @@ h1{
   .sidenav{padding-top: 15px;}
   .sidenav a{font-size: 18px;}
 }
-
 /* ################# Sidebar dropdown ################# */
 .sidenav-dropdown1, .sidenav-dropdown2, .sidenav-dropdown3 {
   position: relative;
@@ -179,3 +178,55 @@ h1{
   display: block;
 }
 
+/* #################### List ##################### */
+.container{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center
+}
+.container_list{
+  background-color: #89A3C9;
+  width: 100vh;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.container_list_info{
+  /*
+  align-content: center;
+  justify-content: center;
+  */
+  display: flex;
+  margin: 1%;
+  background-color: #D9D2D2;
+
+  height: 37px;
+  width: 98%;
+  border-radius: 5px;
+  font-family: 'Nunito', sans-serif; 
+
+}
+.textContainer{
+  align-self: center;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 0px 5px 0px 5px;
+  margin: 2px 3px 2px 3px;
+}
+
+.textContainerRight{
+  align-self: center;
+  text-align: center;
+  height: 30px;
+  color: white;
+  line-height: 30px;
+  border-radius: 5px;
+  padding: 0px 5px 0px 5px;
+  margin: 2px 3px 2px 3px;
+}
