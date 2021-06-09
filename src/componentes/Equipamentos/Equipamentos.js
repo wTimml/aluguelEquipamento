@@ -25,17 +25,28 @@ const Equipamentos = () =>{
     return(
 
         <div style={{height:'100vh'}}>
+            
             <div className="container">
-                
-                    <text style={{color:'white'}}>Equipamentos Disponiveis</text>
+                <button href="#" onClick={console.log('x')}>Reservar Equipamento</button>
+            </div>
+
+            <div className="container">
+                    <div style={{flexDirection:'row',width:'300px', justifyContent:'space-between', display:'flex'}}>
+                        <text style={{color:'white'}}>Equipamentos Disponiveis</text>
+                        <a href='#' style={{color:'white', fontSize:'12px', alignSelf:'center'}}>Ver Todos</a>
+                    </div>
                     <div className='container_list' style={{width:'300px'}}>
                         <div className='container_list_info'>
-                            <text className="textContainer">Cadeira de Rodas</text>    
+                            <text className="textContainerFixWidth">Hospitalares (XX)</text>    
+                            <text className="textContainerFixWidth">Eletrônicos (XX)</text>    
                         </div>
                     </div>
             </div>
             <div className="container">
-                <text style={{color:'white'}}>Devoluções para hoje - {date.getDate()}/{date.getMonth()+1}/{date.getFullYear()}</text>
+                <div style={{flexDirection:'row',width:'100vh', justifyContent:'space-between', display:'flex'}}>
+                    <text style={{color:'white'}}>Devoluções para hoje - {date.getDate()}/{date.getMonth()+1}/{date.getFullYear()}</text>
+                    <a href='#' style={{color:'white', fontSize:'12px', alignSelf:'center'}}>Ver Todos</a>
+                </div>
                 <div className='container_list'>
                     {
                         equipamento.map((equips) => {
@@ -46,7 +57,10 @@ const Equipamentos = () =>{
             </div>
 
             <div className="container">
-                <text style={{color:'white'}}>Equipamentos Atrasados</text>
+                <div style={{flexDirection:'row',width:'100vh', justifyContent:'space-between', display:'flex'}}>
+                    <text style={{color:'white'}}>Equipamentos Atrasados</text>
+                    <a href='#' style={{color:'white', fontSize:'12px', alignSelf:'center'}}>Ver Todos</a>
+                </div>
                 <div className='container_list'>
                     {
                         equipamento.map((equips) => {
@@ -56,6 +70,7 @@ const Equipamentos = () =>{
 
                 </div>
             </div>
+
         </div>
     )
 }

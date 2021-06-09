@@ -219,6 +219,17 @@ h1{
   padding: 0px 5px 0px 5px;
   margin: 2px 3px 2px 3px;
 }
+.textContainerFixWidth{
+  align-self: center;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  width: 140px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 0px 5px 0px 5px;
+  margin: 2px 3px 2px 3px;
+}
 
 .textContainerRight{
   align-self: center;
