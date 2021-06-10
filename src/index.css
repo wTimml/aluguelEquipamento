@@ -133,21 +133,36 @@ h1{
 .sidenav{
   height: 100%;
   position: fixed;
-  width: 180px;
+  width: 50px;
   z-index: 0;
   top: 0;
   left: 0;
   padding-top: 20px;
   background-color: #141920;
+  overflow-x: hidden;
 }
 
 .sidenav a{
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 20px;
-  display: block;
+  display: flex;
   transition: 0.3s;
 }
+
+.sidenav-icons{
+  padding-right: 20px;
+}
+
+.sidenav:hover{
+  width: 180px;
+  overflow-x: visible;
+  
+}
+.sidenav:hover .sidenav-icons{
+  padding-right: 10px;
+}
+
 .sidenav a:hover{
   color: #f1f1f1;
 }
