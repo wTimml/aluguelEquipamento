@@ -1,11 +1,11 @@
 import React from 'react';
 import CriarItem from '../componentes/CriarItem/CriarItem'
-import CriarCliente from '../componentes/CriarCliente/CriarCliente'
+import CriarProduto from '../componentes/CriarProduto/CriarProduto'
 
 export const TelaTestes = ()=>{
     return(
         <div>
-            <CriarCliente />
+            <CriarProduto />
             <CriarItem />
         </div>
     )

@@ -1,0 +1,63 @@
+.itensSelector{
+    display: flex;
+
+    background-color: #ffffff;
+    color: black;
+
+    width: auto;
+    height: auto;
+
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+
+    text-align: center;
+    margin: 1%;
+    padding: 0 1% 0 1%;
+}
+
+.itensSelector:active{
+    position : relative;
+    top: 2px;
+}
+
+.itensContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.caracsContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.containerTitle{
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.criarProduto h4{
+    padding: 0 1% 0 1%;
+    align-self: flex-start;
+    margin: 0;
+}
+  
+.inputItem::placeholder{
+      color: black;
+}
+
+.flexStart{
+      justify-content: flex-start;
+}
+
+.criarProduto p {
+    margin-bottom: 0;
+    border: none;
+    margin: 1% 1% 1% 1%;
+    width: 100%;
+    text-align: left;
+    padding: 0;
+}
