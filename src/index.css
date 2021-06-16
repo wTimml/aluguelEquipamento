@@ -129,11 +129,9 @@ font-size: 1.5vw;
 font-weight: bold;
 }
 h1{
-
   background: -webkit-linear-gradient(#6736DD, #12C3F7);
   background-clip: text;
   -webkit-text-fill-color: transparent;
-
 }
 
 /* ################# Sidebar ################# */

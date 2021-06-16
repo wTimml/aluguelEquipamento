@@ -18,26 +18,22 @@ const CriarItem = () => {
         }
     )
 
-    const [departamentos, setDepartamentos] = useState([
-        {
-            id: 1,
-            nome: "departamento 1"
-        },
-        {
-            id: 2,
-            nome: "departamento 2"
-        }]
-    )
+    let [departamentos, setDepartamentos] = useState([])
 
     const [aviso, setAviso] = useState({
 
         aviso: ''
     })
 
-    /*useEffect(() => {
-            await axios.get('http://localhost:8080/departamentos')
-                .then(response => setDepartamento(departamento = response));
-        }, [])*/
+    async function getDepartamentos() {
+        await axios.get('http://localhost:8080/departamentos')
+            .then(response => setDepartamentos(departamentos = response.data));
+    }
+
+    useEffect(() => {
+
+        getDepartamentos();
+    }, [])
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -87,10 +83,9 @@ const CriarItem = () => {
     }
 
     const ShowCaracteristicas = () => {
-
         if (item.caracteristicas.length > 0) {
             return <div className='caracteristicasContainer'>{item.caracteristicas.map((carac) => {
-                return <div className='caracteristicasItem' onClick={removeCaracteristica(carac)}>{carac.nome}</div>
+                return <div className='caracteristicasItem' key={carac.nome} onClick={removeCaracteristica(carac)}>{carac.nome}</div>
             })}
             </div>
         }

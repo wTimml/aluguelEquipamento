@@ -35,6 +35,7 @@ const CriarDepartamento = () => {
                         placeholder='Nome'
                         onChange={handleChange('nome')}
                         />
+
                 </div>
             </div>
             <div className='row'>

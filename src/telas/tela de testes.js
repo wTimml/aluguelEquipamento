@@ -5,7 +5,6 @@ import CriarItem from '../componentes/CriarItem/CriarItem'
 export const TelaTestes = ()=>{
     return(
             <CriarItem/>
-
     )
 }
 export default TelaTestes;

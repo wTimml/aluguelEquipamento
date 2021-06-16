@@ -49,7 +49,7 @@ const CriarCliente = () => {
         e.preventDefault();
         if (endereco.cep.length === 8) {
             var resposta = await (await axios.get('https://viacep.com.br/ws/' + endereco.cep + '/json')).data;
-
+            
             setEndereco({
                 ...endereco,
                 bairro: resposta.bairro,
@@ -58,6 +58,10 @@ const CriarCliente = () => {
                 uf: resposta.uf,
                 complemento: resposta.complemento
             });
+            setAviso({...aviso, aviso: ""})
+        }
+        else {
+            setAviso({...aviso, aviso: "Cep inválido"})
         }
     }
 
