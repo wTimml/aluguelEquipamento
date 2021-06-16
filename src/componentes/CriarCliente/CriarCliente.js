@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import './styles.css'
+import FindReplaceIcon from '@material-ui/icons/FindReplace';
 
 const CriarCliente = () => {
 
@@ -17,16 +18,17 @@ const CriarCliente = () => {
     const [endereco, setEndereco] = useState({
 
         cep: '',
-        logradouro: '',
-        complemento: '',
-        bairro: '',
-        localidade: '',
-        uf: ''
+        logradouro: 'Rua',
+        complemento: 'Complemento',
+        bairro: 'Bairro',
+        localidade: 'Cidade',
+        uf: 'UF',
+        numero: 'Nr'
     })
 
     const [aviso, setAviso] = useState({
 
-        aviso: 'Mensagem de aviso'
+        aviso: ''
     })
 
     const handleChange = (prop) => (event) => {
@@ -40,6 +42,22 @@ const CriarCliente = () => {
         e.preventDefault();
         await axios.post('http://localhost:8080/clientes', cliente)
             .then(response => setCliente(cliente.id = response.data.id));
+    }
+
+    const atualizarEndereco = async e => {
+        e.preventDefault();
+        if (endereco.cep.length === 8) {
+            var resposta = await (await axios.get('https://viacep.com.br/ws/' + endereco.cep + '/json')).data;
+
+            setEndereco({
+                ...endereco,
+                bairro: resposta.bairro,
+                localidade: resposta.localidade,
+                logradouro: resposta.logradouro,
+                uf: resposta.uf,
+                complemento: resposta.complemento
+            });
+        }
     }
 
     return (<>
@@ -76,31 +94,39 @@ const CriarCliente = () => {
                 </div>
                 <div>
                     <input
+                        label='Cep'
+                        placeholder='Cep'
+                        onChange={handleChangeEndereco('cep')}
+                        style={{ width: '30%' }}
+                        maxLength='8'
+                    />
+                    <FindReplaceIcon onClick={atualizarEndereco} className='simpleButton' />
+                    <input
                         label='Logradouro'
-                        placeholder='Rua'
+                        placeholder={endereco.logradouro}
                         onChange={handleChangeEndereco('logradouro')}
                     />
                     <input
                         label='Numero'
-                        placeholder='Numero'
-                        onChange={handleChangeEndereco('logradouro')}
+                        placeholder={endereco.numero}
+                        onChange={handleChangeEndereco('Nr')}
                         style={{ width: '10%' }}
                     />
                 </div>
                 <div className='row'>
                     <input
                         label='Bairro'
-                        placeholder='Bairro'
+                        placeholder={endereco.bairro}
                         onChange={handleChangeEndereco('bairro')}
                     />
                     <input
                         label='Cidade'
-                        placeholder='Cidade'
+                        placeholder={endereco.localidade}
                         onChange={handleChangeEndereco('localidade')}
                     />
                     <input
                         label='UF'
-                        placeholder='UF'
+                        placeholder={endereco.uf}
                         onChange={handleChangeEndereco('uf')}
                         maxLength='2'
                         style={{ width: '20%' }}
@@ -109,7 +135,7 @@ const CriarCliente = () => {
                 <div>
                     <input
                         label='Complemento'
-                        placeholder='Complemento'
+                        placeholder= {endereco.complemento}
                         onChange={handleChangeEndereco('complemento')}
                     />
                 </div>

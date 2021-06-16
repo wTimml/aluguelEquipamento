@@ -38,6 +38,7 @@ form div{
 }
 
 input{
+  padding: 0 1% 0 1%;
   margin: 1%;
   display: flex;
   align-content: center;
@@ -69,6 +70,10 @@ button {
     justify-content: center;
     text-align: center;
     margin: 2%;
+}
+button:active {
+    position : relative;
+    top: 2px;
 }
 
 .inputBackground {
@@ -106,7 +111,6 @@ button {
 
 }
 
-
 .cardAluguel{
   display: flex;
   align-items: center;
@@ -114,15 +118,22 @@ button {
   flex-direction: column;
   padding: 40px;
 }
+
 .cardFont1{
 font-size: 7vw;   
 font-weight: bold;
 }
+
 .cardFont2{
 font-size: 1.5vw;   
 font-weight: bold;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 h1{
+
   background: -webkit-linear-gradient(#6736DD, #12C3F7);
   background-clip: text;
   -webkit-text-fill-color: transparent;
