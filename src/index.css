@@ -132,3 +132,7 @@ h1{
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.att::placeholder{
+  color: black;
+}

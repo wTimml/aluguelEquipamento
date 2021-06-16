@@ -9,11 +9,7 @@ import Modal from '../Modal/Modal'
 
 const Listar = ({ link }) => {
 
-    let [dados, setDados] = useState([
-        {
-            id: 0
-        }
-    ])
+    let [dados, setDados] = useState([])
 
     const [aviso, setAviso] = useState({
 
@@ -33,24 +29,28 @@ const Listar = ({ link }) => {
         //submitPut(id, dado);
     }
 
+    const handleChange = (prop) => (event) => {
+        setDados({ ...dados, [prop]: event.target.value });
+    }
+
     const submitPut = (id, dado) => async e => {
         e.preventDefault();
-        try{
+        try {
             await axios.put('http://localhost:8080/' + link + "/" + id, dado);
         }
         catch {
             setAviso({ ...aviso, aviso: 'Erro interno, verifique a API' });
-        } 
+        }
     }
 
     const handleDelete = (id) => async e => {
         e.preventDefault();
-        try{
+        try {
             await axios.delete('http://localhost:8080/' + link + "/" + id);
         }
         catch {
             setAviso({ ...aviso, aviso: 'Erro interno, verifique a API' });
-        } 
+        }
     }
 
     useEffect(() => {
@@ -59,16 +59,16 @@ const Listar = ({ link }) => {
 
     return <>
         {isModalVisible ?
-          <Modal onClose = {() => setIsModalVisible(false)}>
-            
-          </Modal>
-          : null}
+            <Modal onClose={() => setIsModalVisible(false)}>
+                
+            </Modal>
+            : null}
         <form>
             <div className='inputBackground'>
                 {dados.map((dado) => {
                     return <div className='lista' key={dado.id}>
                         <div className='listaItem'>{dado.nome}</div>
-                        <BuildIcon className='simpleButton' onClick={handlePut(dado.id, dado)}/>
+                        <BuildIcon className='simpleButton' onClick={handlePut(dado.id, dado)} />
                         <DeleteIcon className='simpleButton' onClick={handleDelete(dado.id)} />
                     </div>
                 })}
