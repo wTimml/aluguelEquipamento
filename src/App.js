@@ -13,9 +13,12 @@ function App() {
         <Sidenav/>
 
         <Switch>
+          <div className='container'>
+
           <Route exact path='/' component={Login} />
           <Route path='/telatestes' component={TelaTestes} />
 
+          </div>
 
 
           {/* Exemplo de route passando params */}

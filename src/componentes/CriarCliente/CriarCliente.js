@@ -40,7 +40,8 @@ const CriarCliente = () => {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        await axios.post('http://localhost:8080/clientes', cliente)
+        api
+        .post('/clientes', cliente)
             .then(response => setCliente(cliente.id = response.data.id));
     }
 
