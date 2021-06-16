@@ -18,3 +18,17 @@
     position : relative;
     top: 2px;
 } 
+
+.att{
+    display: flex;
+    flex-direction: column;
+    width: 96%;
+    background-color: #D9D2D2;
+    border-radius: 10px;
+    margin-top: 1%;
+    
+}
+.att input::placeholder{
+    color: black;
+}
+  

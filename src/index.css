@@ -134,6 +134,10 @@ h1{
   -webkit-text-fill-color: transparent;
 }
 
+<<<<<<< HEAD
+.att::placeholder{
+  color: black;
+=======
 /* ################# Sidebar ################# */
 .sidenav{
   height: 100%;
@@ -260,4 +264,5 @@ h1{
   border-radius: 5px;
   padding: 0px 5px 0px 5px;
   margin: 2px 3px 2px 3px;
+>>>>>>> 58c7f2b92855384592317f8ce5ebf651500587a0
 }
