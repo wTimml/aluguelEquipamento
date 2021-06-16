@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import './styles.css'
 import FindReplaceIcon from '@material-ui/icons/FindReplace';
 import ClearIcon from '@material-ui/icons/Clear';
+import api from '../../Service/api';
 
-const CriarProduto = () => {
+const CriarProduto = ({ id = 0 }) => {
 
     const [itemToSearch, setItemToSearch] = useState({
         item: ''
@@ -15,11 +16,11 @@ const CriarProduto = () => {
     })
 
     const [produto, setProduto] = useState({
-        nome: '',
-        descricao: '',
+        nome: 'Nome',
+        descricao: 'Descrição',
         item: {
             id: 0,
-            nome: '',
+            nome: 'Nome',
             departamento: '',
             caracteristicas: []
         },
@@ -34,10 +35,14 @@ const CriarProduto = () => {
         aviso: ''
     })
 
+    useEffect(() => {
+        if(id !== 0) {
+            api.get('/produtos/'+ id).then(response => setProduto(response.data))
+        }
+    }, [])
+
     const getItens = async e => {
-
         e.preventDefault();
-
         if (itemToSearch.item === "" || itemToSearch.item === null || itemToSearch.item === undefined || itemToSearch.item === " ") {
             await axios.get('http://localhost:8080/itens/')
                 .then(response => setItens(itens = response.data));
@@ -55,10 +60,16 @@ const CriarProduto = () => {
         setItemToSearch({ ...itemToSearch, item: event.target.value });
     }
 
-    const handleSubmit = async e => {
+    const handleSubmit = async e => { 
         e.preventDefault();
+
+        if(id === 0) {
         /*await axios.post('http://localhost:8080/produtos', produto)
             .then(response => setProduto(...produto, id: response.data.id));*/
+        } 
+        else {
+            //await axios.put('http://localhost:8080/produtos', produto)
+        }
     }
 
     const handleItemSelect = (item) => async e => {
@@ -81,7 +92,7 @@ const CriarProduto = () => {
             <div>
                 <input
                     label='Item'
-                    placeholder='Item'
+                    placeholder={produto.item.nome}
                     onChange={handleSearchChange()}
                 />
                 <FindReplaceIcon onClick={getItens} className='simpleButton' />
@@ -169,14 +180,14 @@ const CriarProduto = () => {
                     <div>
                         <input
                             label='Nome'
-                            placeholder='Nome'
+                            placeholder={produto.nome}
                             onChange={handleChange('nome')}
                         />
                     </div>
                     <div>
                         <input
                             label='Descrição'
-                            placeholder='Descrição'
+                            placeholder={produto.descricao}
                             onChange={handleChange('descricao')}
                         />
                     </div>
