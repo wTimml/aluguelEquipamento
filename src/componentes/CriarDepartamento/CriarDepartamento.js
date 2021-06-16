@@ -29,11 +29,13 @@ const CriarDepartamento = () => {
         <h1>Cadastrar Departamento</h1>
         <form onSubmit={handleSubmit}>
             <div className='inputBackground'>
+                <div>
                 <input
                     label='Nome'
                     placeholder='Nome'
                     onChange={handleChange('nome')}
                 />
+                </div>
             </div>
             <div className='row'>
                 <div className='error'>{aviso.aviso}</div>

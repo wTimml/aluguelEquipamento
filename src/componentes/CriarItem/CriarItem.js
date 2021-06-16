@@ -25,11 +25,13 @@ const CriarItem = () => {
         aviso: ''
     })
 
+    async function getDepartamentos() {
+        await axios.get('http://localhost:8080/departamentos')
+            .then(response => setDepartamentos(departamentos = response.data));
+    }
+
     useEffect(() => {
-        async function getDepartamentos() {
-            await axios.get('http://localhost:8080/departamentos')
-                .then(response => setDepartamentos(departamentos = response.data));
-        }
+
         getDepartamentos();
     }, [])
 

@@ -1,12 +1,16 @@
 import React from 'react';
-import CriarItem from '../componentes/CriarItem/CriarItem'
+import Criar from '../componentes/CriarEmprestimo/CriarEmprestimo'
+import CriarDepartamento from '../componentes/CriarDepartamento/CriarDepartamento';
 import CriarProduto from '../componentes/CriarProduto/CriarProduto'
+import Listar from '../componentes/Listar/Listar'
 
 export const TelaTestes = ()=>{
     return(
         <div>
             <CriarProduto />
-            <CriarItem />
+            <CriarDepartamento/>
+
+            <Listar link='itens' />
         </div>
     )
 }

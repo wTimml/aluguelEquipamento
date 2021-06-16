@@ -1,0 +1,20 @@
+.listaItem{
+    background-color: white;
+    padding: 0 1% 0 1%;
+    margin: 1%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+    width: 98%;
+
+    border-radius: 5px;
+    border-style: none;
+
+    font-family: 'Nunito', sans-serif;
+}
+
+.simpleButton:active {
+    position : relative;
+    top: 2px;
+} 
