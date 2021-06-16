@@ -2,13 +2,15 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import TelaTestes from './telas/tela de testes.js'
 import Login from './telas/login'
+import Sidenav from './componentes/Sidenav/Sidenav'
 import './App.css';
 
 function App() {
   return (
     <BrowserRouter>
       <div className='App'>
-        {/* Sidebar aqui fora do switch */}
+        
+        <Sidenav/>
 
         <Switch>
           <Route exact path='/' component={Login} />
