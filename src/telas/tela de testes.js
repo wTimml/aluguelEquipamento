@@ -1,17 +1,10 @@
 import React from 'react';
-import Criar from '../componentes/CriarEmprestimo/CriarEmprestimo'
-import CriarDepartamento from '../componentes/CriarDepartamento/CriarDepartamento';
-import CriarProduto from '../componentes/CriarProduto/CriarProduto'
-import Listar from '../componentes/Listar/Listar'
+import Botao1 from '../componentes/botoes/botao1'
+import CriarItem from '../componentes/CriarItem/CriarItem'
 
 export const TelaTestes = ()=>{
     return(
-        <div>
-            <CriarProduto />
-            <CriarDepartamento/>
-
-            <Listar link='itens' />
-        </div>
+            <CriarItem/>
     )
 }
 export default TelaTestes;
