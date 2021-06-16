@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import './styles.css'
 
-const CriarEmprestimos = () => {
+const CriarEmprestimos = ({id = 0}) => {
     
     const [aviso, setAviso] = useState({
 

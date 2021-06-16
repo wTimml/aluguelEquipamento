@@ -7,10 +7,10 @@ import Modal from '../Modal/Modal'
 
 //exceto emprestimos
 
-const Listar = ({ link }) => {
+const Listar = ({ link, children }) => {
 
     let [dados, setDados] = useState([])
-
+    let [temp, setTemp] = useState(0)
     const [aviso, setAviso] = useState({
 
         aviso: ''
@@ -23,24 +23,14 @@ const Listar = ({ link }) => {
             .then(response => setDados(dados = response.data));
     }
 
-    const handlePut = (id, dado) => async e => {
+    const handlePut = (id) => async e => {
         e.preventDefault();
         setIsModalVisible(true);
-        //submitPut(id, dado);
+        setTemp(id)
     }
 
     const handleChange = (prop) => (event) => {
         setDados({ ...dados, [prop]: event.target.value });
-    }
-
-    const submitPut = (id, dado) => async e => {
-        e.preventDefault();
-        try {
-            await axios.put('http://localhost:8080/' + link + "/" + id, dado);
-        }
-        catch {
-            setAviso({ ...aviso, aviso: 'Erro interno, verifique a API' });
-        }
     }
 
     const handleDelete = (id) => async e => {
@@ -60,7 +50,7 @@ const Listar = ({ link }) => {
     return <>
         {isModalVisible ?
             <Modal onClose={() => setIsModalVisible(false)}>
-                
+                {React.cloneElement(children, {id:temp})}
             </Modal>
             : null}
         <form>

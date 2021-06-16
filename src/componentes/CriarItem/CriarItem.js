@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import './styles.css'
+import api from '../../Service/api';
 
-const CriarItem = () => {
+const CriarItem = ({ id = 0 }) => {
 
     const [item, setItem] = useState({
 
         id: 0,
         nome: '',
-        departamento: '',
+        departamento: {
+            id: 0,
+            nome: ''
+        },
         caracteristicas: []
     })
 
@@ -33,28 +37,57 @@ const CriarItem = () => {
     useEffect(() => {
 
         getDepartamentos();
+        if (id === 0) setItem({ ...item, nome: "Nome", departamento: { nome: "Selecione um departamento" } })
+        else {
+            api.get('/itens/' + id).then(response => setItem({
+                ...item,
+                id: response.data.id,
+                nome: response.data.nome,
+                departamento: response.data.departamento,
+                caracteristicas: response.data.caracteristicas
+            }))
+        }
     }, [])
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (item.departamento === null || item.departamento === undefined || item.departamento === '') {
+        if (id === 0) {
+            if (item.departamento === null || item.departamento === undefined || item.departamento === '') {
 
-            setAviso({ ...aviso, aviso: 'Selecione um departamento!' });
-        }
-        else {
-            setAviso({ ...aviso, aviso: '' });
-            console.log(item)
+                setAviso({ ...aviso, aviso: 'Selecione um departamento!' });
+            }
+            else {
+                setAviso({ ...aviso, aviso: '' });
+                console.log(item)
+            }
+            //axios.post
+        } else {
+            if (item.departamento === null || item.departamento === undefined || item.departamento === '') {
 
-            //axios.post etc
+                setAviso({ ...aviso, aviso: 'Selecione um departamento!' });
+            }
+            else {
+                setAviso({ ...aviso, aviso: '' });
+                console.log(item)
+
+                //axios.put 
+            }
         }
     }
+
+    let [temp, setTemp] = useState()
 
     const handleChange = (prop) => (event) => {
         setItem({ ...item, [prop]: event.target.value });
     }
 
     const handleChangeSelect = () => (event) => {
-        setItem({ ...item, departamento: departamentos[event.target.value - 1] });
+        if (id !== 0) setTemp(item.departamento)
+        if (event.target.value === null) {
+            if (id !== 0) setItem({ ...item, departamento: temp });
+            else setItem({ ...item, departamento: departamentos[event.target.value - 1] });
+        }
     }
 
     const handleChangeCar = () => (event) => {
@@ -102,12 +135,12 @@ const CriarItem = () => {
                     <div>
                         <input
                             label='Nome'
-                            placeholder='Nome'
+                            placeholder={item.nome}
                             onChange={handleChange('nome')}
                         />
                     </div>
                     <select onChange={handleChangeSelect()}>
-                        <option value={null}>Selecionar departamento</option>
+                        <option value={null}>{item.departamento.nome}</option>
                         {departamentos.map((dep) => {
                             return (
                                 <option key={dep.id} value={dep.id}>{dep.nome}</option>
@@ -134,7 +167,7 @@ const CriarItem = () => {
 
             <div className='row'>
                 <div className='error'>{aviso.aviso}</div>
-                <button type='submit'> Cadastrar </button>
+                <button type='submit'> Salvar </button>
             </div>
         </form>
     </>

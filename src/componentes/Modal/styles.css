@@ -2,7 +2,7 @@
     display:flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     position: absolute;
     top: 0;
@@ -10,7 +10,16 @@
     z-index: 10;
     background-color: rgba(0,0,0,0.8);
 }
- 
+
+.content{
+    width: 40%;
+}
+.content input::placeholder{
+    color: black;
+}
+.content form{
+    width: 100%;
+}
 
 .att{
     display: flex;

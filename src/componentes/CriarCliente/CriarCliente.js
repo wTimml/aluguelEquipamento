@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import './styles.css'
 import FindReplaceIcon from '@material-ui/icons/FindReplace';
+import api from '../../Service/api'
 
-const CriarCliente = () => {
+const CriarCliente = (id = 0) => {
 
     const [cliente, setCliente] = useState({
 
@@ -40,9 +41,11 @@ const CriarCliente = () => {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        api
+        if( id === 0) api
         .post('/clientes', cliente)
             .then(response => setCliente(cliente.id = response.data.id));
+        else api
+        .put('/clientes/'+ id, cliente).then(response => console.log(response.status));
     }
 
     const atualizarEndereco = async e => {
@@ -65,6 +68,20 @@ const CriarCliente = () => {
         }
     }
 
+    if(id === 0) {
+        setCliente({...cliente,
+        id: 0,
+        nome: 'Nome',
+        rg: 'Rg',
+        cpf: 'Cpf',
+        endereco: '',
+        telefone: 'Telefone'
+        })
+    }
+    else {
+        api.get('/clientes/'+ id).then(response => setClientes({...cliente, cliente: response.data}))
+    }
+
     return (<>
         <h1>Cadastrar Cliente</h1>
         <form className="clienteForm" onSubmit={handleSubmit}>
@@ -72,20 +89,20 @@ const CriarCliente = () => {
                 <div>
                     <input
                         label='Nome'
-                        placeholder='Nome'
+                        placeholder={cliente.nome}
                         onChange={handleChange('nome')}
                     />
                 </div>
                 <div className='row'>
                     <input
                         label='Rg'
-                        placeholder='RG'
+                        placeholder={cliente.rg}
                         maxLength='11'
                         onChange={handleChange('rg')}
                     />
                     <input
                         label='Cpf'
-                        placeholder='CPF'
+                        placeholder={cliente.cpf}
                         maxLength='11'
                         onChange={handleChange('cpf')}
                     />
@@ -93,14 +110,14 @@ const CriarCliente = () => {
                 <div>
                     <input
                         label='Telefone'
-                        placeholder='Telefone'
+                        placeholder={cliente.telefone}
                         onChange={handleChange('telefone')}
                     />
                 </div>
                 <div>
                     <input
                         label='Cep'
-                        placeholder='Cep'
+                        placeholder={cliente.cep}
                         onChange={handleChangeEndereco('cep')}
                         style={{ width: '30%' }}
                         maxLength='8'

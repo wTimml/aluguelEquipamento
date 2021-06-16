@@ -1,8 +1,9 @@
+import { RestorePageOutlined } from '@material-ui/icons';
 import React, { useEffect, useState } from 'react'
 import api from '../../Service/api';
 import './styles.css'
 
-const CriarDepartamento = () => {
+const CriarDepartamento = ({ id= 0 }) => {
 
     const [departamento, setDepartamento] = useState({
         id: 0,
@@ -20,10 +21,22 @@ const CriarDepartamento = () => {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        api
+        if(id === 0)api
             .post('/departamentos', departamento)
             .then(response => setDepartamento(departamento.id = response.data.id));
+        else {
+            api.put('/departamentos/' + id, departamento).then(response => console.log(response.status))
+        }
     }
+
+
+    useEffect(() => {
+        if (id === 0) setDepartamento({ ...departamento, nome: "Nome" })
+        else {
+            api.get('/departamentos/' + id).then(response => setDepartamento({ ...departamento, id: response.data.id, nome: response.data.nome }))
+        }
+    }, [])
+
 
     return (<>
         <h1>Cadastrar Departamento</h1>
@@ -32,15 +45,14 @@ const CriarDepartamento = () => {
                 <div>
                     <input
                         label='Nome'
-                        placeholder='Nome'
+                        placeholder={departamento.nome}
                         onChange={handleChange('nome')}
-                        />
-
+                    />
                 </div>
             </div>
             <div className='row'>
                 <div className='error'>{aviso.aviso}</div>
-                <button type='submit'> Criar </button>
+                <button type='submit'> Salvar </button>
             </div>
 
         </form>
