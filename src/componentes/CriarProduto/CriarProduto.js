@@ -64,11 +64,13 @@ const CriarProduto = ({ id = 0 }) => {
         e.preventDefault();
 
         if(id === 0) {
-        /*await axios.post('http://localhost:8080/produtos', produto)
-            .then(response => setProduto(...produto, id: response.data.id));*/
+        var resp = await axios.post('http://localhost:8080/produtos/', produto)
+            setProduto({...produto, id: resp.data.id})
+            console.log(resp.status)
         } 
         else {
-            //await axios.put('http://localhost:8080/produtos', produto)
+            var resp = await axios.put('http://localhost:8080/produtos/'+ id, produto)
+            console.log(resp.status)
         }
     }
 
