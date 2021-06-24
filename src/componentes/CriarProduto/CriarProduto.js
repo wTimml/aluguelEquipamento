@@ -16,6 +16,7 @@ const CriarProduto = ({ id = 0 }) => {
     })
 
     const [produto, setProduto] = useState({
+        id: 0,
         nome: 'Nome',
         descricao: 'Descrição',
         item: {
@@ -70,6 +71,7 @@ const CriarProduto = ({ id = 0 }) => {
         } 
         else {
             var resp = await axios.put('http://localhost:8080/produtos/'+ id, produto)
+            console.log('http://localhost:8080/produtos/'+ id)
             console.log(resp.status)
         }
     }
@@ -124,6 +126,7 @@ const CriarProduto = ({ id = 0 }) => {
     }
 
     const selecionarOutroItem = (e) => {
+        e.preventDefault();
         setProduto({
             ...produto, item: {
                 id: 0,
