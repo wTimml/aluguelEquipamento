@@ -29,7 +29,7 @@ const CriarEmprestimos = ({id = 0}) => {
         telefone: ''
     })
 
-    const [clienate, setCliente] = useState({
+    const [cliente, setCliente] = useState({
         id: 0,
         nome: '',
         rg: '',
